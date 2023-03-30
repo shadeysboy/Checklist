@@ -16,4 +16,7 @@ def character_limit(eObjVar):
     if len(eObjVar.get()) > 50:#If greater than set character max...
         eObjVar.set(eObjVar.get()[:-1])#Will prevent user from typing more characters.
 
+
+
+
 eObjVar.trace("w", lambda *args: character_limit(eObjVar))
