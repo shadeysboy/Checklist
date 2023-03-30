@@ -10,6 +10,8 @@ class CLCalendar:
         #RAW_CD is a constant value(CD stands for CurrentDate).
         #Useful for resetting rawCD.
 
+
+
         self._RAW_CD = date.today()
         self._rawCD = self._RAW_CD
     '''
