@@ -9,7 +9,7 @@ class CLCalendar:
     def __init__(self):
         #RAW_CD is a constant value(CD stands for CurrentDate).
         #Useful for resetting rawCD.
-        
+
         self._RAW_CD = date.today()
         self._rawCD = self._RAW_CD
     '''
@@ -19,9 +19,11 @@ class CLCalendar:
         #todays date using date class)
         global _RAW_CD
         global _rawCD
-        
+
         _rawCD = _RAW_CD
-        print("This is reset: " + self.getCurrentDate())       
+        print("This is reset: " + self.getCurrentDate())
+
+
 
     @classmethod
     def getCurrentDate(self) -> date:
@@ -36,7 +38,7 @@ class CLCalendar:
         #Provide the int value for the year, month, and/or day
         #you want to set to _rawCD
         global _rawCD
-        
+
         if day == None:
             if (month != None) or (year != None):
                 day = 1
@@ -57,12 +59,12 @@ class CLCalendar:
         #index 0: Enum of day name of first day of month.
         #         (ex. 0-6 -> Mon-Sun)
         #
-        #index 1: Total num days in month (based on year and 
+        #index 1: Total num days in month (based on year and
         #         month _rawCD is set to).
         global _rawCD
-        
+
         return monthrange(_rawCD.year, _rawCD.month)
-                
+
     @classmethod
     def getDateRangeBetweenDates(self, y1, m1, d1, y2, m2, d2) -> list:
         #For two specified Dates, (m1/d1/y1 and m2/d2/y2), get all the days in-between both dates (inclusive).
@@ -71,14 +73,14 @@ class CLCalendar:
         currentMonth = m1
         currentYear = y1
         outDateRange = []
-        
+
         while(True):
             try:
                 #print(currentMonth)
                 if(currentDay > d2 and currentMonth >= m2 and currentYear >= y2):
                     break
                 date(currentYear,currentMonth, currentDay)
-                outDateRange.append(str(currentMonth) + "/" + str(currentDay) + "/" + str(currentYear))                
+                outDateRange.append(str(currentMonth) + "/" + str(currentDay) + "/" + str(currentYear))
                 currentDay+=1
             except ValueError:
                 currentDay = 1
@@ -121,7 +123,7 @@ class CLCalendar:
     def getNumRangeBetweenNums(self, n1, n2) -> list:
         if n1 > n2 : raise ValueError("Beginning number greater than ending number.")
         return [str(num) for num in range(n1, (n2 + 1))]
-        
+
     #Add check for all between methods ensuring that lesser values are passed to 1
     #and higher values are passed to 2.
 
@@ -158,11 +160,11 @@ class CLCalendar:
                 case 1:
                     inputArgs = self._dateFormatter(val_1, val_2)
                     return self.getDateRangeBetweenDates(*inputArgs)
-                
+
                 case 2:
                     inputArgs = self._dateFormatter(val_1, val_2)
                     return self.getYearlessDateRangeBetweenDates(*inputArgs)
-                    
+
                 case 3:
                     return self.getYearRangeBetweenYears(int(val_1), int(val_2))
 
@@ -241,4 +243,3 @@ if __name__ == "__main__":
     #Test 6
     print("Method Selection 6:")
     print(cObj.getColumns(6, "0", "100"))
-    

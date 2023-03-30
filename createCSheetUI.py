@@ -21,6 +21,8 @@ class CreateCSheetUI:
                 master = Frame(window, width = 800, height = 600, relief = "groove", borderwidth = 2, bg = "white")
                 #top groups cat and dat related widgets together.
                 top = Frame(master, width = 285, height = 344, relief = "groove", borderwidth = 2)
+
+
                 
 
                 #Name Label and Name Entry Box
@@ -123,7 +125,7 @@ class CreateCSheetUI:
                     if result != None:
                         datOLB.overWriteWith(result)
                         #print(datOLB.getList())
- 
+
                 #Clear, Create, and Back Callbacks
                 def destroyScreen():
                    for widget in window.winfo_children():
@@ -179,11 +181,11 @@ class CreateCSheetUI:
                     else:
                         fsObj.setFlag("homepageUI")
                     fsObj.setData("")
-                    
+
 
                 '''
                 #mouseCallback taken from this site...
-                ##Link: https://www.tutorialspoint.com/mouse-position-in-python-tkinter   
+                ##Link: https://www.tutorialspoint.com/mouse-position-in-python-tkinter
                 def mouseCallBack(e):
                 ##Helps in placement of widget
                    x= e.x
@@ -192,7 +194,7 @@ class CreateCSheetUI:
                 ##Commented out below line as it is only used for determining widget placement.
                 catCFrame.bind('<Motion>', mouseCallBack)
                 '''
-                 
+
                 #catCFrame Controls
                 catSet = Button(catCFrame, text = "set", command = catSelectCallBack, width = 3, height = 1)
                 leftB = Button(catCFrame, text = "-", command = decrementCallBack, width = 2, height = 3)
@@ -238,7 +240,7 @@ class CreateCSheetUI:
                 RB_6.place(x = 0, y = 140)
 
                 ##Add Name, Name Entry box, Clear, Create, and Back Controls here.
-                #Laying out top window 
+                #Laying out top window
                 catViewport.place(x = 0, y = 0)
                 datViewport.place(x = 140, y = 0)
                 catScrollbar.config(command = catOLB.yview())
