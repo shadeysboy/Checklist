@@ -19,7 +19,13 @@ class EntryReader:
             print(erObj.getNumber())
         return entryCallBack
 
-    
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
     root = Tk()
@@ -30,4 +36,3 @@ if __name__ == "__main__":
     getButton.pack()
 
     root.mainloop()
-    
